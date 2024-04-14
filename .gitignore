@@ -1,0 +1,6 @@
+node_modules
+yarn-error.log
+presentacion/dist
+__pycache__
+.venv
+.pytest_cache
