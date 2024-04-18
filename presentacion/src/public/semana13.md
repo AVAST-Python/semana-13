@@ -9,6 +9,27 @@
 
 ---
 
+# Dibujar en Python
+
+- Pygame: https://www.pygame.org/news
+- Matplotlib:
+- tcl/tk: 
+
+---
+
+# Matplotlib
+
+https://www2.eii.uva.es/fund_inf/python/notebooks/Bibliotecas/01_Introduccion_a_Matplotlib/Introduccion_a_Matplotlib.html
+
+
+---
+
+# Pygame
+
+https://www.pythonmania.net/es/2010/03/23/tutorial-pygame-introduccion/
+
+---
+
 # Rangos
 
 
