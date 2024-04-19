@@ -11,22 +11,42 @@
 
 # Dibujar en Python
 
-- Pygame: https://www.pygame.org/news
-- Matplotlib:
-- tcl/tk: 
+Dibujar es difícil. Hace falta una librería. Hay diferentes enfoques:
+
+- [tcl/tk](https://www.tcl.tk/): Dibujo de bajo nivel. Normalmente es usado por otras librerías
+- [Pygame](https://www.pygame.org/news): Orientado a la creación de juegos.
+- [Matplotlib](https://matplotlib.org/) Orientada a dibujar gráficos. Es la que vamos a utilizar hoy.
 
 ---
 
 # Matplotlib
+
+
+
+
+
 
 https://www2.eii.uva.es/fund_inf/python/notebooks/Bibliotecas/01_Introduccion_a_Matplotlib/Introduccion_a_Matplotlib.html
 
 
 ---
 
-# Pygame
+# Preparación del entorno
 
-https://www.pythonmania.net/es/2010/03/23/tutorial-pygame-introduccion/
+-Vamos a trabajar en un servidor de Jupyter Lab
+-Puedes lanzar tu propio servidor de Jupyter en casa:
+-Puedes trabajar en local con entornos virtuales
+
+
+---
+
+---
+
+Dos equipos:
+- Nivel alto de programación: preparan el gráfico con una funcion distancia falsa
+- Nivel bajo de preparación: preparan la función distancia
+
+Luego los juntamos
 
 ---
 

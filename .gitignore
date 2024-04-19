@@ -1,3 +1,6 @@
+jupyter/.ipynb_checkpoints
+jupyter/notebooks/.ipynb_checkpoints
+
 node_modules
 yarn-error.log
 presentacion/dist
