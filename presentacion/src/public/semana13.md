@@ -71,11 +71,7 @@ plt.show()
 - Lo complicado es preparar los datos
 - Cada gráfico tiene muchas opciones, lo mejor es copiar/pegar o usar chatGPT
 
-Tutorial:
-https://www2.eii.uva.es/fund_inf/python/notebooks/Bibliotecas/01_Introduccion_a_Matplotlib/Introduccion_a_Matplotlib.html
-
-
-lista_x = np.linspace(x_min, x_max, num_puntos)
+[Tutorial de Matplotlib](https://www2.eii.uva.es/fund_inf/python/notebooks/Bibliotecas/01_Introduccion_a_Matplotlib/Introduccion_a_Matplotlib.html)
 
 ---
 
@@ -89,9 +85,22 @@ Luego los juntamos
 
 ---
 
+# Preparar el gráfico
+
+TO-DO
+
+lista_x = np.linspace(x_min, x_max, num_puntos)
+
+
 
 ---
 
+# Función distancia
 
+TO-DO
+
+- Tuplas
+- ¿Cómo vas a saber si la función va bien?
+- Revisa casos límite: mismo punto, puntos en la vertical, puntos en diferentes cuadrantes...
 
 ---
