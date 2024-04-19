@@ -115,10 +115,3 @@ def distancia_ascensor(A,B):
     x2, y2 = B
     return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 ```
-
-
-
-
-
-
----
