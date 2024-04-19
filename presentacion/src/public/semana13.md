@@ -3,7 +3,13 @@
 ## Semana 13
 <!-- .element style="text-align:center" -->
 
-![alt text](./img/logo2.png) <!-- .element style="margin-left: auto; margin-right: auto; display: block" -->
+![Logo de AVAST](./img/logo2.png) <!-- .element style="margin-left: auto; margin-right: auto; display: block" -->
+
+---
+
+# Distancia ascensor
+
+
 
 ---
 
@@ -22,54 +28,15 @@ Dibujar es difícil. Hace falta una librería. Hay diferentes enfoques:
 - Biblioteca para generar gráficos de distintos tipos
 - Se integra con [numpy](https://numpy.org/) (librería de manejo de datos)
 - Tipos básicos de gráfico:
-<style>
-    table {
-        border-collapse: collapse;
-    }
-    td, th {
-        border: none;
-        padding: 5px; /* Adjust padding as needed */
-    }
-</style>
-
-<table style="border:none !important">
-  <tr>
-    <td style="border:none">
-      <img src="image1.jpg" alt="Image 1" style="vertical-align: middle;">
-    </td>
-    <td style="vertical-align: middle; border: none">
-      Text for Image 1
-    </td>
-  </tr>
-  <tr>
-    <td style="border:none">
-      <img src="image1.jpg" alt="Image 1" style="vertical-align: middle;">
-    </td>
-    <td style="vertical-align: middle; border: none">
-      Text for Image 1
-    </td>
-  </tr>
-  <tr>
-    <td style="border:none !important">
-      <img src="image1.jpg" alt="Image 1" style="vertical-align: middle;">
-    </td>
-    <td style="vertical-align: middle; border: none">
-      Text for Image 1
-    </td>
-  </tr>
-</table>
-
-
-https://www2.eii.uva.es/fund_inf/python/notebooks/Bibliotecas/01_Introduccion_a_Matplotlib/Introduccion_a_Matplotlib.html
-
-
-
+![alt text](./img/tipos_de_grafico.png)
+<!-- .element style="text-align:center" -->
 
 ---
 
 # Preparación del entorno
 
-- Vamos a trabajar en un servidor de Jupyter Lab:<br/>
+- Necesita utilizar librerías, así que tenemos que preparar el entorno de trabajo
+- Para simplificar, vamos a trabajar en un servidor de Jupyter Lab:<br/>
 [https://becoming-formally-lab.ngrok-free.app](https://becoming-formally-lab.ngrok-free.app) (password: `patata`)
 - Puedes lanzar tu propio servidor de Jupyter en casa con docker compose:
 ```sh
@@ -81,13 +48,35 @@ docker compose up
 Notes:
 `ngrok http 8888 --domain=becoming-formally-lab.ngrok-free.app`
 
-
 ---
+# Ejemplo básico de gráfico
+
+```python
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+
+plt.plot(x, y)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Line Plot')
+plt.grid(True)
+plt.show()
+```
+
+- Se le pasan dos conjuntos de datos: "x" e "y"
+- Dependiendo del conjunto de datos, significan una cosa u otra
+- Lo complicado es preparar los datos
+- Cada gráfico tiene muchas opciones, lo mejor es copiar/pegar o usar chatGPT
+
+Tutorial:
+https://www2.eii.uva.es/fund_inf/python/notebooks/Bibliotecas/01_Introduccion_a_Matplotlib/Introduccion_a_Matplotlib.html
 
 
 lista_x = np.linspace(x_min, x_max, num_puntos)
 
 ---
+
+# Forma de trabajo
 
 Dos equipos:
 - Nivel alto de programación: preparan el gráfico con una funcion distancia falsa
