@@ -9,7 +9,10 @@
 
 # Distancia ascensor
 
+![Distancia ascensor](./img/distancia_ascensor.png) <!-- .element style="margin-left: auto; margin-right: auto; display: block" -->
 
+**Objetivo: pintar los puntos que están a distancia ascensor 1 de otro.**
+<!-- .element style="text-align:center" -->
 
 ---
 
