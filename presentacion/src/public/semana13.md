@@ -85,22 +85,40 @@ Luego los juntamos
 
 ---
 
-# Preparar el gráfico
-
-TO-DO
-
-lista_x = np.linspace(x_min, x_max, num_puntos)
-
-
-
----
 
 # Función distancia
 
-TO-DO
+Función `distancia_ascensor` que tome dos puntos A, B y calcule la distancia ascensor.
 
-- Tuplas
+- Cómo representar los puntos: tuplas `(1,2)` ("listas" inmutables)
 - ¿Cómo vas a saber si la función va bien?
 - Revisa casos límite: mismo punto, puntos en la vertical, puntos en diferentes cuadrantes...
+
+---
+
+# Preparar el gráfico
+
+- ¿Qué tipo de gráfico vas a usar?
+- ¿Cómo vas a calcular los puntos a pintar?
+- Puedes utilizar [numpy](https://www.freecodecamp.org/espanol/news/la-guia-definitiva-del-paquete-numpy-para-computacion-cientifica-en-python/) para hacer cálculos. Por ejemplo:
+```python
+import numpy as np
+lista_x = np.linspace(x_min, x_max, num_puntos)
+```
+- Utiliza la siguiente función, que debería mostrar un círculo de radio 1:
+
+```python
+import math
+...
+def distancia_ascensor(A,B):
+    x1, y1 = A
+    x2, y2 = B
+    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+```
+
+
+
+
+
 
 ---
