@@ -1,54 +1,74 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
-def funcion_condicional(punto):
-    # Ejemplo de una función condicional: devuelve True si la suma de las coordenadas es mayor a 10
-    return sum(punto) > 10
+def distancia_ascensor(A, B):
+    # Desempaquetar las coordenadas de los puntos A y B
+    x1, y1 = A
+    x2, y2 = B
 
-def generar_puntos(punto_central, distancia, num_puntos):
+    # Si los puntos están en distinta vertical
+    if x1 != x2 :
+        # Calcular la distancia vertical desde A hasta el eje X (planta baja)
+        distancia_vertical_A = abs(y1)
+        # Calcular la distancia horizontal desde el eje X hasta la vertical del punto B
+        distancia_horizontal = abs(x2 - x1)
+        # Calcular la distancia vertical desde la vertical del punto B hasta B
+        distancia_vertical_B = abs(y2)
+        # Calcular la distancia total sumando las distancias verticales y horizontales
+        distancia_total = distancia_vertical_A + distancia_horizontal + distancia_vertical_B
+
+    else: # Los puntos están en la misma vertical
+        distancia_total = abs(y1 - y2)
+
+    return distancia_total
+
+def a_distancia(A,B):
+    return distancia_ascensor(A,B) <= 1
+
+def puntos_candidatos(punto_central, num_puntos = 10):
     x_central, y_central = punto_central
-    puntos_generados = []
-    for i in range(num_puntos):
-        angulo = 2 * i * 3.14159 / num_puntos  # Distribuir los puntos uniformemente alrededor del círculo
-        x = x_central + distancia * 1.0 * math.cos(angulo)
-        y = y_central + distancia * 1.0 * math.sin(angulo)
-        puntos_generados.append((x, y))
-    return puntos_generados
+    x_min = x_central - 1
+    x_max = x_central + 1
+    y_min = y_central - 1
+    y_max = y_central + 1
 
-def scatter_plot_condicional(punto_central, distancia, num_puntos):
-    # Generar los puntos alrededor del punto central con la distancia especificada
-    puntos = generar_puntos(punto_central, distancia, num_puntos)
+    puntos_x = np.linspace(x_min, x_max, num_puntos)
+    puntos_y = np.linspace(y_min, y_max, num_puntos)
 
-    # Separar los puntos que cumplen la condición de la función
-    puntos_verdaderos = [punto for punto in puntos if funcion_condicional(punto)]
+    candidatos = np.meshgrid(puntos_x, puntos_y)
+    return np.dstack(candidatos).reshape(-1,2)
 
-    # Obtener las coordenadas x e y de los puntos y del punto central
-    xs, ys = zip(*puntos)
-    x_central, y_central = punto_central
+def grafico_distancia(punto_central, num_puntos = 10):
+    candidatos = puntos_candidatos(punto_central, num_puntos)
+    cumple = np.apply_along_axis(lambda row: a_distancia(punto_central, row), axis=1, arr=candidatos)
+    cumplen = candidatos[cumple]
 
-    # Crear el scatter plot
-    plt.scatter(xs, ys, color='gray', label='Puntos')
+    # Puede que no haya ningún punto a distancia < 1
+    if cumplen.size > 0:
+        x, y = zip(*cumplen)
+        plt.scatter(x, y, color='gray', label='Puntos', s=3)
 
     # Agregar el punto central
+    x_central, y_central = punto_central
     plt.scatter(x_central, y_central, color='red', label='Punto Central')
 
-    # Agregar los puntos que cumplen la condición
-    if puntos_verdaderos:
-        xs_verdaderos, ys_verdaderos = zip(*puntos_verdaderos)
-        plt.scatter(xs_verdaderos, ys_verdaderos, color='blue', label='Puntos Verdaderos')
+    # Centra el gráfico en 0,0
+    max_abs = max(max(abs(min(x)), abs(max(x))), max(abs(min(y)), abs(max(y))))
+    plt.xlim(-max_abs, max_abs)
+    plt.ylim(-max_abs, max_abs)
 
     # Configuraciones adicionales
     plt.xlabel('Coordenada X')
     plt.ylabel('Coordenada Y')
-    plt.title('Scatter Plot con Función Condicional')
+    plt.title(f'Puntos a distancia ascensor 1 de (x_central, y_central)')
     plt.legend()
     plt.grid(True)
 
     # Mostrar el gráfico
     plt.show()
 
-# Ejemplo de uso
-import math
-punto_central = (5, 5)
-distancia = 1
-num_puntos = 10
-scatter_plot_condicional(punto_central, distancia, num_puntos)
+
+PUNTOS = 100
+CENTRO = (2, 0.3)
+grafico_distancia(CENTRO, PUNTOS)
+
